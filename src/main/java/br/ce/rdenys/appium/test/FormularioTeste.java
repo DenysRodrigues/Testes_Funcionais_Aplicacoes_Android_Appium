@@ -3,14 +3,20 @@ package br.ce.rdenys.appium.test;
 import static org.junit.Assert.assertEquals;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.ce.rdenys.appium.page.BaseTeste;
+import br.ce.rdenys.appium.core.BaseTeste;
+import br.ce.rdenys.appium.core.DriverFactory;
 import br.ce.rdenys.appium.page.FormularioPage;
 import br.ce.rdenys.appium.page.MenuPage;
+import io.appium.java_client.functions.ExpectedCondition;
 
 public class FormularioTeste extends BaseTeste{
 
@@ -67,5 +73,31 @@ public class FormularioTeste extends BaseTeste{
 		Assert.assertTrue(page.obterSwitchCadstrado().endsWith("Off"));
 
 		Assert.assertTrue(page.obterCheckCadastrado().endsWith("Marcado"));		
+	}
+	
+	@Test
+	public void deveRealizarCadastroDemorado() throws MalformedURLException {
+		
+		page.escreverNome("Denys Rodrigues");
+		DriverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+//		page.clicarCheck();
+		
+//		page.clicarSwitch();
+
+//		page.selecionarCombo("PS4");
+
+		page.clicarSalvarDemorado();
+//		esperar(5000);
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Nome: Denys Rodrigues']")));
+
+		Assert.assertEquals("Nome: Denys Rodrigues", page.obterNomeCadastrado());
+		
+//		Assert.assertEquals("Console: ps4", page.obterConsoleCadastrado());
+		
+//		Assert.assertTrue(page.obterSwitchCadstrado().endsWith("Off"));
+
+//		Assert.assertTrue(page.obterCheckCadastrado().endsWith("Marcado"));		
 	}
 }

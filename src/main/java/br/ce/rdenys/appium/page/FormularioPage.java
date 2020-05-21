@@ -2,6 +2,7 @@ package br.ce.rdenys.appium.page;
 
 import org.openqa.selenium.By;
 
+import br.ce.rdenys.appium.core.BasePage;
 import io.appium.java_client.MobileBy;
 
 public class FormularioPage extends BasePage {
@@ -37,6 +38,10 @@ public class FormularioPage extends BasePage {
 	
 	public boolean isSwitchMarcado() {
 		return isCheckedMarcado(MobileBy.AccessibilityId("switch"));
+	}
+	
+	public void clicarSalvarDemorado() {
+		clicarPorTexto("SALVAR DEMORADO");
 	}
 	
 	public void clicarSalvar() {

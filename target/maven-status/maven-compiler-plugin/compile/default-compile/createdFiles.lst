@@ -1,0 +1,10 @@
+br/ce/rdenys/appium/core/DriverFactory.class
+br/ce/rdenys/appium/core/BasePage.class
+br/ce/rdenys/appium/page/FormularioPage.class
+br/ce/rdenys/appium/test/SplashTeste.class
+br/ce/rdenys/appium/core/BaseTeste.class
+br/ce/rdenys/appium/page/MenuPage.class
+br/ce/rdenys/appium/test/FormularioTeste.class
+br/ce/rdenys/appium/page/SplashPage.class
+br/ce/rdenys/appium/test/CalculadoraTesteCelular.class
+br/ce/rdenys/appium/test/CalculadoraTesteEmulador.class
